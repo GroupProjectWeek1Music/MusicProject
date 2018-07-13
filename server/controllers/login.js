@@ -3,7 +3,7 @@ const User = require('../models/users')
 const bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken');
 
-const register = function(req, res){
+const registerFb = function(req, res){
     let token = req.body.accessToken
     FB.api('me', { fields: ['id', 'name', 'email'], access_token: token }, function (resFb) {
          let email = resFb.email
@@ -57,5 +57,5 @@ const register = function(req, res){
 
 
 module.exports = {
-    register   
+    registerFb  
 }
