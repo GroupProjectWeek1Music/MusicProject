@@ -1,7 +1,12 @@
  const serverAddres = 'http://localhost:3000/login/'
  const serverHome =  'http://localhost:3000/home/'
+<<<<<<< HEAD
  const idApp = '548038762266220'
  const tokenName = "fbToken"
+=======
+ const idApp = '974119162762843'
+ const tokenName = "socmedToken"
+>>>>>>> 31cfe6ac75ee29354d48768450ae37f3ff980e59
 
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
