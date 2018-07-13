@@ -21,6 +21,7 @@ db.once('open', function() {
 //routes require
 const loginRouter = require('./routes/login')
 const homeRouter = require('./routes/home')
+const signUpRouter = require('./routes/signUp')
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', usersRouter);
 app.use('/login', loginRouter)
 app.use('/home', homeRouter)
+app.use('/signUp', signUpRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,7 +57,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('error');
 });
 
 module.exports = app;
