@@ -6,7 +6,7 @@ var logger = require('morgan');
 var ejs = require ('ejs')
 const cors = require('cors')
 
-
+require('dotenv').config()
 //mongoose
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/musicalyrics-development');
