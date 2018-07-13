@@ -11,8 +11,6 @@
    <title>Document</title>
 </head>
 <body>
-   <div id="fb-root"></div>
-   
    <div class="navbar-fixed" style="height:100px">
       <nav>
          <div class="nav-wrapper">
@@ -33,23 +31,19 @@
       <div class="col s12 m4 l8">
          <div id="logInForm">
             <form style="text-align:center">
+
+               <label style="font-size:20px; color:black;">Name:</label><br>
+               <input style="max-width:400px;"> <br>
                <label style="font-size:20px; color:black;">Username:</label> <br>
                <input style="max-width:400px;"> <br>
                <label style="font-size:20px; color:black;">Password:</label><br>
-               <input style="max-width:400px;">
+               <input style="max-width:400px;"> <br>
                <br>
-               <a class="waves-effect waves-light btn" id="login">Log In</a>
+               <a class="waves-effect waves-light btn" id="register">Register</a>
             </form>
             <br>
             <div style="text-align: center">
-               Or <br><br>
-               <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false">
-               </fb:login-button>
-               
-          
-               <br>
-               <br>
-               <label style="font-size:15px; color:black; text-align:center">New user? <a href="./register.html">Sign up for free here</a></label>
+               <label style="font-size:15px; color:black; text-align:center">Already have an account?<a href="./index.html"> Sign in here</a></label>
             </div>
          </div>  
       </div>
@@ -61,9 +55,6 @@
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src='./js/axios.js' type="text/javascript"></script>
-   <script src="./javascript/fb.js" type="text/javascript"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-   <script src="lib/loginFacebook.js"></script>
-
 </body>
 </html>
