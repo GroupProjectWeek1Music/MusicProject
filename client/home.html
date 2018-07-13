@@ -108,12 +108,19 @@
             }
           })
             .then(function(response){
-              console.log(response)
-              for(let i = 0; i < response.data.artists.item.length; i++){
+              // console.log(response);
+              console.log("artis response", response.data.artists.items.length);
+              $('#showResult').html("");
+
+              for(let i = 0; i < response.data.artists.items.length; i++){
+                console.log("error at ", i)
                $('#showResult').append(`
                <div class="card blue-grey darken-1">
                <div class="card-content white-text">
-                  <span class="card-title" style="color:darkblue">@${response.data.artists.item[i].user.name}</span>
+                  <span class="card-title" style="color:darkblue">
+                    Name: <a href="${response.data.artists.items[i].external_urls.spotify}" target="_blank"> ${response.data.artists.items[i].name} </a> <br>
+                    Popularity: ${response.data.artists.items[i].popularity} <br>
+                    </span>
                </div>
                </div>`)
                }
@@ -132,8 +139,43 @@
             }
             })
             .then(function(response){
+            
               console.log(response)
+              console.log("track response", response.data.tracks.items[0].uri);
+              $('#showResult').html("");
+              function addTrack(uri){
+                let track = uri;
+                axios.post(`https://api.spotify.com/v1/users/rleelav/playlists/2QnKfdJOG41McQS5RJGVAz/tracks?uris=${track}`,{}, {
+                  headers: {
+                    Authorization: "Bearer BQDgDyyHV9FVDga2XJ45LlJrdQa24Y1FNk0Hc8u2Vcq7Sl8ij_8nKG4tFM8SD7raZjIhTTuFWFLb3jeh_t_dGvj2ojfQPhtB5FY0rlodPIo2wghXTrYEgNzUoM1ykCh4x8LFNW9LG4uQ9NYITmJECC_GxaJrjpYeSvL7-LfWyjCEDnPymuerSNc2VD6UXvP8A5f8GY9WQtweCQd42Y64QqDOfxCd"
+                  }
+                })
+                .then(function(response){
+                  console.log(response)
+                })
+                .catch(function(err){
+                  console.log(err);
+                })
+              }
 
+              for(let i = 0; i < response.data.tracks.items.length; i++){
+                console.log("error at ", i)
+               $('#showResult').append(`
+               <div class="card blue-grey darken-1">
+               <div class="card-content white-text">
+                  <span class="card-title" style="color:darkblue">
+                    Track Name: ${response.data.tracks.items[i].name} <br>
+                    Album: <a href="${response.data.tracks.items[i].album.external_urls.spotify}" target="_blank"> ${response.data.tracks.items[i].album.name}</a> <br>
+                    Artist: <a href="${response.data.tracks.items[i].external_urls.spotify}" target="_blank">${response.data.tracks.items[i].artists[0].name} </a><br>
+                    </span>
+               </div>
+              <div class="card-action">
+                 <a onclick="addTrack(${response.data.tracks.items[i].uri})">Add to Playlist</a>
+              </div>
+                
+               </div>`)
+               }
+               
               //response.data.track.item[i].name
             })
             .catch(function(err){
