@@ -1,20 +1,9 @@
-
 const express = require('express')
 const router = express.Router()
+// const ControllerLogin = require('../controllers/login')
 
-router.get('/', function(req,res){
-    axios
-    .get('http://localhost:8080/home.html')
-    .then(function(){
-        res
-            .status(200)
-    })
-    .catch(function(err){
-        res
-            .status(400)
-    })
-
+router.get('/home',function(req,res){
+   console.log("WELCOMEE")
 })
-
 
 module.exports = router

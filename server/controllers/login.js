@@ -13,8 +13,6 @@ const registerFb = function(req, res){
          User
          .findOne({email : email})
          .then(function(user){
-             
-             
              if(user){
                 console.log("ada user nya", user)
                 var token = jwt.sign({ id:user.id, name:user.name, email:user.email }, 'hacktiv8');
@@ -51,6 +49,9 @@ const registerFb = function(req, res){
                  })
              }
          }) 
+         .catch(function(err){
+             res.status(400).json(err.message)
+         })
     });
 }
 
