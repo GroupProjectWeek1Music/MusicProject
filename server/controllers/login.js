@@ -54,8 +54,51 @@ const registerFb = function(req, res){
     });
 }
 
+const loginApp = function(req,res){
+    let email = req.body.username
+    let password = req.body.password
+    
+    //cari email di dalam data base
+    //cek paswordnya
+    //kirim token baru
+
+    User
+    .findOne({
+        email : email
+    })
+    .then(function(user){
+        if(user){
+            let hash = user.password
+            if (bcrypt.compareSync(password, hash)){
+                console.log("succesfully login", user)
+                var token = jwt.sign({ id:user.id, name:user.name, email:user.email }, 'hacktiv8');
+
+                console.log("dari server token :", token )
+                res
+                    .status(200)
+                    .json(token)
+            }else{
+                res
+                    .status(401)
+                    .json({
+                        msg : "wrong password"
+                    })
+                console.log("wrong password")
+            }
+        }else{
+            res
+                .status(400)
+                .json("unregister")
+        }
+    })
+    .catch(function(err){
+        console.log("controller loginReg : =====>",err)
+    })
+    console.log(email, password)
+}
 
 
 module.exports = {
-    registerFb  
+    registerFb,
+    loginApp,  
 }
