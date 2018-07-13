@@ -57,5 +57,5 @@ const registerFb = function(req, res){
 
 
 module.exports = {
-    registerFb  
+    registerFb   
 }
