@@ -4,6 +4,7 @@ const musicController = require('../controllers/music');
 
 router
     .get('/search/artist', musicController.searchArtist)
-    .get('/search/song', musicController.searchSong)
+    .get('/search/track', musicController.searchTrack)
+    .get('/playlist/tracks', musicController.getTracks)
 
 module.exports = router
