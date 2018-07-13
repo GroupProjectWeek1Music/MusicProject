@@ -14,10 +14,12 @@ const tokenName = "socmedToken"
    console.log(response);
    
    if (response.status === 'connected') {
-     
+     testAPI()
    } else {
      document.getElementById('status').innerHTML = 'Please log ' +
        'into this app.';
+       localStorage.removeItem("fbToken")
+       window.location.replace("/index.html")
    }
  }
 
@@ -56,10 +58,15 @@ const tokenName = "socmedToken"
 
  function logout(){
    alert('sure ??')
-   FB.logout(function(response) {
-       // Person is now logged out
-       localStorage.removeItem(tokenName)
+   if(localStorage.getItem("fbToken")){
+    FB.logout(function(response){
+      localStorage.removeItem("fbToken")
        window.location.replace("/index.html")
     });
-   
-}
+   }else{
+      localStorage.removeItem("regToken")
+      window.location.replace("/index.html")
+   }
+  }
+
+  

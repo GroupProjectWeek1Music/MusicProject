@@ -10,7 +10,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    <title>Document</title>
 </head>
-<body>
+<body onload="doubleLogin()">
    <div id="fb-root"></div>
    
    <div class="navbar-fixed" style="height:100px">
@@ -33,12 +33,12 @@
       <div class="col s12 m4 l8">
          <div id="logInForm">
             <form style="text-align:center">
-               <label style="font-size:20px; color:black;">Username:</label> <br>
-               <input style="max-width:400px;"> <br>
+               <label style="font-size:20px; color:black;">Email:</label> <br>
+               <input id="username" style="max-width:400px;"> <br>
                <label style="font-size:20px; color:black;">Password:</label><br>
-               <input style="max-width:400px;">
+               <input id="password" style="max-width:400px;">
                <br>
-               <a class="waves-effect waves-light btn" id="login">Log In</a>
+               <a class="waves-effect waves-light btn" id="login" onclick="login()">Log In</a>
             </form>
             <br>
             <div style="text-align: center">
@@ -64,6 +64,7 @@
    <script src="./javascript/fb.js" type="text/javascript"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
    <script src="lib/loginFacebook.js"></script>
-
+   <script src="lib/loginReg.js"></script>
+   <script src="lib/doubleLogin.js"></script>
 </body>
 </html>

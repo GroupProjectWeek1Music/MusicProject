@@ -1,7 +1,7 @@
  const serverAddres = 'http://localhost:3000/login/'
  const serverHome =  'http://localhost:3000/home/'
  const idApp = '548038762266220'
- const tokenName = "socmedToken"
+ const tokenName = "fbToken"
 
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
@@ -34,6 +34,8 @@
     } else {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
+        localStorage.removeItem("fbToken")
+        window.location.replace("/index.html")
     }
   }
 
@@ -70,12 +72,6 @@
     });
   }
 
-  function logout(){
-    alert('sure ??')
-    FB.logout(function(response) {
-        // Person is now logged out
-        localStorage.removeItem(tokenName)
-        window.location.replace("/index.html")
-     });
+ 
     
-}
+
