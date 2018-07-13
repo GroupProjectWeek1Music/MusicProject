@@ -50,10 +50,9 @@
             <br>
             <div style="text-align: center">
                Or <br><br>
-               
                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false">
                </fb:login-button>
-          
+               <button id="logout" onclick="logout()">logout</button>
                <br>
                <br>
                <label style="font-size:15px; color:black; text-align:center">New user? <a href="./register.html">Sign up for free here</a></label>
@@ -70,6 +69,7 @@
    <script src='./js/axios.js' type="text/javascript"></script>
    <script src="./javascript/fb.js" type="text/javascript"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   <script src="lib/loginFacebook.js"></script>
 
 </body>
 </html>
