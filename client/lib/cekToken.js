@@ -1,7 +1,6 @@
 function cekToken(){
     alert("welcome to Musicalyrics")
-
-    if(localStorage.getItem("fbToken") || localStorage.getItem("regToken")  ){
+    if(localStorage.getItem("fbToken")){
         alert("lanjutt !")
     }else{
         alert("gw kick yahh !")

@@ -1,7 +1,7 @@
 const serverAddres = 'http://localhost:3000/login/'
 const serverHome =  'http://localhost:3000/home/'
-const idApp = '974119162762843'
-const tokenName = "socmedToken"
+const idApp = '548038762266220'
+
 
  function checkLoginState() {
    FB.getLoginStatus(function(response) {
@@ -14,12 +14,10 @@ const tokenName = "socmedToken"
    console.log(response);
    
    if (response.status === 'connected') {
-     testAPI()
+  
    } else {
      document.getElementById('status').innerHTML = 'Please log ' +
        'into this app.';
-       localStorage.removeItem("fbToken")
-       window.location.replace("/index.html")
    }
  }
 
