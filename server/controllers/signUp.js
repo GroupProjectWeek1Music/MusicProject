@@ -11,7 +11,7 @@ class signUp {
     static addUser (req,res) {
         const { name, email, password } = req.body
        
-        console.log(req.body)
+        // console.log(req.body)
          User.create({ 
             name: name, 
             email: email,
