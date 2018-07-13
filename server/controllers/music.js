@@ -5,19 +5,19 @@ class MusicController {
     static searchArtist(req, res){
 
         let artistName = req.headers.artist;
-
         axios.get(`https://api.spotify.com/v1/search?q=${artistName}&type=artist&limit=5`,
             {headers : {
-              Authorization : "Bearer BQCKyxMwtDbjbDpb8RXBF4FdNvqK_sa4EZnAMmHY6KsPh6EwXTSTFhncxDisO6iJE5JMg6jI3ZaIhRYHkVw0c9ec6AmEFhEeQUH4y8nOtKlTj4epkomZ09bFofYiCoBvbS8DU4ti415toql6WPaarfke6Y5Dy8FRKcRt_C-uE1Tsf4S_GsDpJB91Iwz2"
+              Authorization : "Bearer BQBYoR1sh0dWdzTfmlJXWCjK6ouEr53tY_C0sZ2pj5DLHnjV_IO2XWN1ZtvNeOqKzCzUzyvN4tIDXgb0vCqBcBxT3L7TrN96TE_aAcX3oJrFr6JA2Y4NUqM4878mgMIClp5Xa7fzGd1WAK5pc6STXXxdtPEy-10kj7zjtwPjVWyqssH7lhIlNipM2n377ZcgLobpOCqwKLjoFg4YExP82V37ZkxQ-FU"
             }})
             .then(function (response) {
-              
-              res.json(response.data)
+              console.log("ERROR SINI")
+
+              res.status(200).json(response.data)
                
             })
             .catch(function (error) {
               // handle error
-
+              console.log(error)
               res.status(400).json(error)
               
             })
@@ -30,12 +30,12 @@ class MusicController {
 
         axios.get(`https://api.spotify.com/v1/search?q=${trackName}&type=track&limit=5`,
             {headers : {
-              Authorization : "Bearer BQCKyxMwtDbjbDpb8RXBF4FdNvqK_sa4EZnAMmHY6KsPh6EwXTSTFhncxDisO6iJE5JMg6jI3ZaIhRYHkVw0c9ec6AmEFhEeQUH4y8nOtKlTj4epkomZ09bFofYiCoBvbS8DU4ti415toql6WPaarfke6Y5Dy8FRKcRt_C-uE1Tsf4S_GsDpJB91Iwz2"
+              Authorization : "Bearer BQBYoR1sh0dWdzTfmlJXWCjK6ouEr53tY_C0sZ2pj5DLHnjV_IO2XWN1ZtvNeOqKzCzUzyvN4tIDXgb0vCqBcBxT3L7TrN96TE_aAcX3oJrFr6JA2Y4NUqM4878mgMIClp5Xa7fzGd1WAK5pc6STXXxdtPEy-10kj7zjtwPjVWyqssH7lhIlNipM2n377ZcgLobpOCqwKLjoFg4YExP82V37ZkxQ-FU"
             }})
             .then(function (response) {
               // handle success
               
-              res.json(response.data)
+              res.status(200).json(response.data)
             })
             .catch(function (error) {
               // handle error
@@ -52,12 +52,12 @@ class MusicController {
 
       axios.post('https://api.spotify.com/v1/users/2609ecdafcee47c8a6176bb83e88a507/playlists/2QnKfdJOG41McQS5RJGVAz/tracks?uris=6JzzI3YxHCcjZ7MCQS2YS1',
       {headers : {
-        Authorization : "Bearer BQCKyxMwtDbjbDpb8RXBF4FdNvqK_sa4EZnAMmHY6KsPh6EwXTSTFhncxDisO6iJE5JMg6jI3ZaIhRYHkVw0c9ec6AmEFhEeQUH4y8nOtKlTj4epkomZ09bFofYiCoBvbS8DU4ti415toql6WPaarfke6Y5Dy8FRKcRt_C-uE1Tsf4S_GsDpJB91Iwz2"
+        Authorization : "Bearer BQBYoR1sh0dWdzTfmlJXWCjK6ouEr53tY_C0sZ2pj5DLHnjV_IO2XWN1ZtvNeOqKzCzUzyvN4tIDXgb0vCqBcBxT3L7TrN96TE_aAcX3oJrFr6JA2Y4NUqM4878mgMIClp5Xa7fzGd1WAK5pc6STXXxdtPEy-10kj7zjtwPjVWyqssH7lhIlNipM2n377ZcgLobpOCqwKLjoFg4YExP82V37ZkxQ-FU"
       }})
       .then(function (response) {
         // handle success
         console.log(response);
-        res.send(response.data)
+        res.status(200).json(response.data)
       })
       .catch(function (error) {
         // handle error

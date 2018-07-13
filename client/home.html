@@ -145,22 +145,8 @@
             .then(function(response){
             
               console.log(response)
-              console.log("track response", response.data.tracks.items[0].uri);
+              // console.log("track response", response.data.tracks.items[0].uri);
               $('#showResult').html("");
-              function addTrack(uri){
-                let track = uri;
-                axios.post(`https://api.spotify.com/v1/users/rleelav/playlists/2QnKfdJOG41McQS5RJGVAz/tracks?uris=${track}`,{}, {
-                  headers: {
-                    Authorization: "Bearer BQDgDyyHV9FVDga2XJ45LlJrdQa24Y1FNk0Hc8u2Vcq7Sl8ij_8nKG4tFM8SD7raZjIhTTuFWFLb3jeh_t_dGvj2ojfQPhtB5FY0rlodPIo2wghXTrYEgNzUoM1ykCh4x8LFNW9LG4uQ9NYITmJECC_GxaJrjpYeSvL7-LfWyjCEDnPymuerSNc2VD6UXvP8A5f8GY9WQtweCQd42Y64QqDOfxCd"
-                  }
-                })
-                .then(function(response){
-                  console.log(response)
-                })
-                .catch(function(err){
-                  console.log(err);
-                })
-              }
 
               for(let i = 0; i < response.data.tracks.items.length; i++){
                 console.log("error at ", i)
@@ -174,7 +160,7 @@
                     </span>
                </div>
               <div class="card-action">
-                 <a onclick="addTrack(${response.data.tracks.items[i].uri})">Add to Playlist</a>
+                <a onclick="addTrack('${response.data.tracks.items[i].uri}')">Add to Playlist</a>
               </div>
                 
                </div>`)
@@ -188,6 +174,23 @@
           }
 
         }
+      }
+
+       function addTrack(uri){
+        console.log(uri)
+        let track = uri;
+        console.log(uri);
+        axios.post(`https://api.spotify.com/v1/users/rleelav/playlists/2QnKfdJOG41McQS5RJGVAz/tracks?uris=${track}`,{}, {
+          headers: {
+            Authorization: "Bearer BQBYoR1sh0dWdzTfmlJXWCjK6ouEr53tY_C0sZ2pj5DLHnjV_IO2XWN1ZtvNeOqKzCzUzyvN4tIDXgb0vCqBcBxT3L7TrN96TE_aAcX3oJrFr6JA2Y4NUqM4878mgMIClp5Xa7fzGd1WAK5pc6STXXxdtPEy-10kj7zjtwPjVWyqssH7lhIlNipM2n377ZcgLobpOCqwKLjoFg4YExP82V37ZkxQ-FU"
+          }
+        })
+        .then(function(response){
+          console.log(response)
+        })
+        .catch(function(err){
+          console.log(err);
+        })
       }
       </script>
 

@@ -1,6 +1,6 @@
  const serverAddres = 'http://localhost:3000/login/'
  const serverHome =  'http://localhost:3000/home/'
- const idApp = '548038762266220'
+ const idApp = '1773998629350718'
  const tokenName = "fbToken"
 
   function checkLoginState() {
