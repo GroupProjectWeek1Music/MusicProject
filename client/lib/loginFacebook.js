@@ -1,5 +1,6 @@
- const serverAddres = 'http://localhost:3000/login/' 
- const idApp = '548038762266220'
+ const serverAddres = 'http://localhost:3000/login/'
+ const serverHome =  'http://localhost:3000/home/'
+ const idApp = '974119162762843'
  const tokenName = "socmedToken"
 
   function checkLoginState() {
@@ -20,6 +21,10 @@
           console.log(data);
           localStorage.setItem(tokenName, data.data);
           testAPI();
+        })
+        .then(function(){
+          console.log("setelah login")
+          window.location.replace("/home.html")
         })
         .catch(function (error) {
           console.log(error);
@@ -51,9 +56,9 @@
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=1773998629350718&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+ }(document, 'script', 'facebook-jssdk'))
 
   
   function testAPI() {
@@ -64,9 +69,13 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-function logout()
-  FB.logout(function(response) {
-    localStorage.removeItem(tokenName)
-    document.getElementById('status').innerHTML =
-        'see you again !';
- });
+
+  function logout(){
+    alert('sure ??')
+    FB.logout(function(response) {
+        // Person is now logged out
+        localStorage.removeItem(tokenName)
+        window.location.replace("/index.html")
+     });
+    
+}
