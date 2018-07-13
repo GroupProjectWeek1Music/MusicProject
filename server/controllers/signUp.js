@@ -11,19 +11,22 @@ class signUp {
     static addUser (req,res) {
         const { name, email, password } = req.body
        
-        console.log(req.body)
+        // console.log(req.body)
          User.create({ 
             name: name, 
             email: email,
             password: password
           })
           .then (function(result){
-            res.status(200).json("User has been created")
+            res.status(200).json(result)
           })
           .catch(function(err){
               res.status(400).json(err.message);
-          })        
+          })
+        // res.send('test')        
     }
 }
 
-// signUp.addUser()
+module.exports = {
+    signUp
+}
