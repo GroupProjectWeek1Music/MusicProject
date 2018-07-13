@@ -4,7 +4,10 @@ var path = require('path');
 var logger = require('morgan');
 var ejs = require ('ejs')
 const cors = require('cors')
+
 const axios = require('axios');
+
+require('dotenv').config()
 
 //mongoose
 const mongoose = require('mongoose');
@@ -21,6 +24,8 @@ db.once('open', function() {
 const loginRouter = require('./routes/login')
 const homeRouter = require('./routes/home')
 const musicRouter = require('./routes/music')
+const signUpRouter = require('./routes/signUp')
+
 var app = express();
 
 app.use(cors());
@@ -34,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/login', loginRouter)
 app.use('/home', homeRouter)
 app.use('/music', musicRouter)
+app.use('/signUp', signUpRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,8 +55,12 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('error');
 });
 
 module.exports = app;
+
+
+//    console.log(error);
+//  })
 
